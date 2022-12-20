@@ -1498,6 +1498,8 @@ zh-CN:
   themes:
     contrast: Mastodon（高对比度）
     default: Mastodon（暗色主题）
+    default-sidebar-down: 暗色-侧边栏下置
+    default-sidebar-up: 暗色-侧边栏置顶
     mastodon-light: Mastodon（亮色主题）
   time:
     formats:

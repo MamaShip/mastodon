@@ -1531,6 +1531,8 @@ en:
   themes:
     contrast: Mastodon (High contrast)
     default: Mastodon (Dark)
+    default-sidebar-down: Dark - sidebar down
+    default-sidebar-up: Dark - sidebar up
     mastodon-light: Mastodon (Light)
   time:
     formats:
