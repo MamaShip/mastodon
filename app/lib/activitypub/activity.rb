@@ -176,4 +176,9 @@ class ActivityPub::Activity
     Rails.logger.info("Rejected #{@json['type']} activity #{@json['id']} from #{@account.uri}#{@options[:relayed_through_actor] && "via #{@options[:relayed_through_actor].uri}"}")
     nil
   end
+
+  def reject_spam!
+    Rails.logger.info("Rejected 荒らし.com spam from #{@account.uri} with content #{@object['content']}")
+    nil
+  end
 end

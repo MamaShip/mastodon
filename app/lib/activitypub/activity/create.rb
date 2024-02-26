@@ -47,6 +47,9 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
   end
 
   def create_status
+    if @object['tag'].present? && @object['tag'].is_a?(Array) && @object['tag'].count { |tag| tag['type'] == 'Mention' } > 3 && ( @object['content'].present? && @object['content'].is_a?(String) && ( @object['content'].include?('<a href="https://荒らし.com') || @object['content'].include?('<a href="https://ctkpaarr.org')) || ( @account.username == @account.display_name && @account.created_at > Time.zone.local(2024, 2, 15, 0 ,0, 0)))
+      return reject_spam!
+    end
     return reject_payload! if unsupported_object_type? || non_matching_uri_hosts?(@account.uri, object_uri) || tombstone_exists? || !related_to_local_activity?
 
     with_redis_lock("create:#{object_uri}") do
